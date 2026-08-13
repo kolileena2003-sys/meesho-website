@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meesho Clone</title>
+
+ 
+
+  <style>
+
+/* ===== NAVBAR MAIN ===== */
+.navbar {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+margin-left:40px;
+margin-right:40px;
+}
+
+/* LEFT */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 65%;
+
+}
+
+/* LOGO */
+.logo img {
+  height: 40px;
+}
+
+/* SEARCH */
+.search-box {
+  flex: 1;
+  position: relative;
+}
+
+.search-box input {
+  width: 90%;
+height:30px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* DROPDOWN */
+
+  .dropdown-custom {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 90%;
+      background: #fff;
+      border: 1px solid #D3D3E3;
+      border-radius: 8px;
+      padding: 15px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .search-box:focus-within .dropdown-custom {
+      display: block;
+    }
+
+    .dropdown-custom a {
+      background:#ECECF9;
+      text-decoration: none;
+      color: #555;
+      margin: 5px;
+      display: inline-block;
+      padding:10px;
+      border:1px solid #D8D8F2;
+      border-radius:30px;
+    }
+
+
+
+
+/* RIGHT */
+.rightnav {
+  display: flex;
+  align-items: center;
+  gap:30px;
+
+}
+
+.rightnav span {
+  cursor: pointer;
+  font-size: 14px;
+  white-space: normal;   /* allow wrapping */
+  width: 80px;           /* force 2 lines */
+  text-align: center;
+}
+
+.rgtnav {
+  width: 1px;
+  height: 20px;
+  background: #ccc;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.icon-box img {
+  width: 22px;
+}
+
+.icon-box span {
+  font-size: 12px;
+  text-align: center;
+  width: 60px;
+  line-height: 14px;
+  white-space: normal;
+}
+
+/* ===== 2ND NAVBAR (MEESHO STYLE FIXED) ===== */
+.second-nav {
+  background: white;
+  border-bottom: 1px solid #eee;
+margin-left:40px;
+margin-right:40px;
+
+
+}
+
+.second-container {
+  display: flex;
+  padding: 10px 20px;
+
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ITEM */
+.menu li {
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 0;
+  transition: 0.3s;
+}
+
+/* underline effect */
+.menu li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #9c27b0;
+  transition: 0.3s;
+}
+
+.menu li:hover {
+  color: #9c27b0;
+}
+
+.menu li:hover::after {
+  width: 100%;
+}
+
+/* ===== REST OF YOUR ORIGINAL CSS (UNCHANGED) ===== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  width: 700px;
+  border-radius: 10px;
+  position: relative;
+  text-align: left;
+}
+
+.close-btn {
+  background: #eee;
+  border-radius: 50%;
+  padding: 2px 8px;
+  margin-left: 620px;
+}
+
+    /* ====== MEESHO HOVER EFFECT ====== */
+    .nav3 {
+      position: relative;
+      cursor: pointer;
+      padding-bottom: 6px;
+    }
+
+    .nav3::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: #9c27b0;
+   
+    }
+
+    .nav3:hover {
+      color: #9c27b0;
+    }
+
+    .nav3:hover::after {
+      width: 100%;
+    }
+.box {
+  display: flex;
+  align-items: center; /* vertically center */
+  gap: 10px; /* image aur text ke beech space */
+}
+.img-box {
+  position: relative;
+  display: inline-block;
+}
+
+.img-text {
+  position: absolute;
+  top: 190px;   
+  left: 1050px;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 32px;
+font-weight:bold;
+}
+
+.pinkbox{
+background:#FBE9FB;
+text-align:center;
+font-size:12px;
+}
+.whitebox{
+  background: white;
+  border: 2px solid #ED9CED;
+  padding: 5px 8px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 40px;
+  border-radius: 10px;
+width: 1055px;   /* 👈 halka chhota feel */
+  margin: auto;
+height:40px;
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;   /* 👈 force horizontal */
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background: white;
+margin-bottom:55px;
+}
+.p:hover {
+  transform: scale(1.1);
+ transition: transform 0.3s ease;
+}
+.box2 {
+  position: relative;
+  width: 100%;
+}
+
+.main-img {
+  width: 100%;
+  display: block;
+}
+
+/* container rule fix */
+.box2 img {
+  display: block;
+}
+
+/* top row */
+.overlay-img {
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  width: 150px;
+}
+
+.overlay2-img {
+  position: absolute;
+  top: 20%;
+  left: 75%;
+  width: 150px;
+}
+
+/* bottom row */
+.overlay3-img {
+  position: absolute;
+  top: 60%;
+  left: 55%;
+  width: 150px;
+}
+
+.overlay4-img {
+  position: absolute;
+  top: 60%;
+  left: 75%;
+  width: 150px;
+}
+
+.overlay5-img {
+  position: absolute;
+  top: 80%;
+  left: 15%;
+  width: 150px;
+color:#D4AF37;
+background:#653910;
+border:2px solid #D4AF37;
+padding:20px;
+border-radius:10px;
+font-size:20px;
+font-weight:bold;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.4s ease;
+}
+
+.track img {
+  width: 280px;
+  border-radius: 10px;
+}
+
+.btn {
+  position: absolute;
+  top: 40%;
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.left { left: 0; }
+.right { right: 0; }
+
+/* Container settings */
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: #F2F0FF;
+  white-space: nowrap;
+  position: relative;
+}
+.logos-slide {
+  display: inline-block;
+  animation: slide 35s linear infinite;
+}
+
+/* smooth images */
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
+  transition: transform 0.3s ease;
+}
+
+/* PAUSE animation on hover */
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+/* zoom effect ONLY on images (not container) */
+.logos-slide img:hover {
+  transform: scale(1.1);
+}
+
+/* keyframes */
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.logo-card {
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;      /* horizontal size */
+  height: 300px;      /* rectangle height */
+
+  margin: 0 15px;
+  border-radius: 8px; /* smooth corners */
+  padding: 10px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo-card img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+.main2-img {
+  width: 100%;
+ height:450px;
+  display: block;
+}
+
+/* container rule fix */
+.box3 img {
+  display: block;
+}
+
+/* top row */
+.overlay01-img {
+  position: absolute;
+  top: 310%;
+  left: 42%;
+  width: 150px;
+}
+
+.overlay02-img {
+  position: absolute;
+  top: 310%;
+  left: 55%;
+  width: 150px;
+}
+
+/* bottom row */
+.overlay03-img {
+  position: absolute;
+  top: 310%;
+  left: 68%;
+  width: 150px;
+}
+
+.overlay04-img {
+  position: absolute;
+  top: 310%;
+  left: 81%;
+  width: 150px;
+}
+.overlay05-img{
+  position: absolute;
+  top: 350%;
+  left: 5%;
+  width: 190px;
+  height: 50px;
+
+  color: purple;
+  background: white;
+  border: 2px solid #D4AF37;
+  border-radius: 10px;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  display: flex;              /* 👈 main fix */
+  align-items: center;        /* vertical center */
+  justify-content: center;    /* horizontal center */
+}
+
+/* Navbar */
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.products input {
+  width: 40%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.products-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Layout */
+.container {
+  display: flex;
+margin-left:25px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20%;
+  background: white;
+  padding: 20px;
+
+}
+
+/* Filters */
+.filter {
+  margin-bottom: 15px;
+}
+
+.filter-title {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+border-bottom:1px solid #ddd;
+}
+
+.filter-content {
+  display: none;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-top: none;
+}
+
+.filter-content p {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+/* Products */
+.products {
+  width: 80%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 5px;
+	width:230px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.rating {
+  background: #6AD48D;
+  color: white;
+  padding: 1px;
+  border-radius: 20px;
+  font-size: 15px;
+width:45px;
+}
+.filterbox{
+border-bottom	:1px solid #C9C1C0;
+font-weight:444;
+font-size:15px;
+padding:5px;
+width:270px;
+}
+.filterbox2{
+border	:1px solid #C9C1C0;
+font-weight:444;
+font-size:15px;
+padding:7px;
+width:270px;
+border-radius:3px;
+}
+
+.genderopt {
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+
+  border: 1px solid #ddd;
+  border-radius: 17px;
+
+  padding: 6px 14px;   /* 👈 important */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+color:#867B79;
+}
+.footer {
+  background-color: #ECEFF8;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  width: 170px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.footer2-section {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.footer3-section {
+  width: 120px; /* ya 100px try karo */
+margin-left:35px;
+}
+.footer3-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-section img {
+  margin-right: 10px;
+}
+.footer4-section {
+  width: 280px;
+  margin-bottom: 20px;
+font-size:15px;
+}
+/* FONT AWESOME */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+.menu-box{
+  position:relative;
+  height:70px;
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+}
+
+/* BUTTON */
+.menu-btn{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  color:#555;
+  transition:0.3s;
+  padding:0 10px;
+  height:70px;
+}
+
+.menu-btn i{
+  font-size:20px;
+}
+
+.menu-btn span{
+  font-size:25px;
+  font-weight:500;
+}
+
+/* hover color */
+.menu-box:hover .menu-btn{
+  color:#d4007f;
+}
+
+/* pink underline */
+.menu-box::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:0%;
+  height:3px;
+  background:#d4007f;
+  transition:0.3s;
+}
+
+.menu-box:hover::after{
+  width:100%;
+}
+
+/* DROPDOWN BOX */
+.profile-dropdown{
+  position:absolute;
+  top:70px;
+  width:270px;
+  background:#fff;
+  border-radius:0 0 12px 12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.15);
+  overflow:hidden;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.3s;
+  z-index:100;
+}
+
+/* SHOW ON HOVER */
+.menu-box:hover .profile-dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+/* USER SECTION */
+.user-section{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:10px 12px;;
+  border-bottom:1px solid #eee;
+}
+
+.user-icon{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_eDOzBmMfoiaSmk7Ufn8_uWbUukNTFZVbQ&s');
+  background-size:80px 70px;   /* 👈 image size control */
+  background-repeat:no-repeat;
+  background-position:center;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* TEXT */
+.user-info h2{
+  font-size:22px;
+  margin-bottom:6px;
+  color:#222;
+}
+
+.user-info p{
+  font-size:17px;
+  color:#444;
+}
+
+/* MENU ITEMS */
+.drop-item{
+  display:flex;
+
+  gap:18px;
+  padding:25px;
+  font-size:20px;
+  color:#444;
+  border-bottom:1px solid #eee;
+  transition:0.2s;
+  padding:14px 16px;
+  white-space: nowrap;
+   /* 👈 main fix */
+}
+
+.drop-item:last-child{
+  border-bottom:none;
+}
+
+.drop-item i{
+  font-size:25px;
+  width:20px;
+  color:blue;
+}
+
+.drop-item:hover{
+  background:#fafafa;
+}
+.drop-item span{
+  white-space: nowrap;
+  font-size:19px;
+color:black;
+}
+
+.signup
+{
+background:#BA30A6;
+color:white;
+width:240px;
+padding:15px;
+border-radius:5px;
+font-size:19px;
+border:0px;
+}
+
+
+ </style>
+</head>
+
+<body style="font-family:Roboto, Arial, sans-serif;">
+
+<nav class="navbar">
+  <div class="nav-container">
+
+    <div class="left-section">
+      <div class="logo">
+        <img src="https://www.meesho.com/assets/svgicons/meeshoLogo.svg">
+      </div>
+
+      <div class="search-box">
+        <input type="text" placeholder="Try Saree, Kurti or Search by Product Code">
+  <div class="dropdown-custom">
+          <div class="title">Popular Searches</div>
+
+          <a href="#">saree</a>
+          <a href="#">short kurti</a>
+          <a href="#">earring</a>
+          <a href="#">kurti</a>
+          <a href="#">tshirt</a><br>
+
+          <a href="#">kashmiri bangle</a>
+          <a href="#">top for women</a>
+          <a href="#">watch</a>
+          <a href="#">kurti set</a><br>
+
+          <a href="#">shoes</a>
+          <a href="#">bangle</a>
+          <a href="#">top</a>
+          <a href="#">slipper</a>
+          <a href="#">water bottle</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rightnav">
+      <span>Become a Supplier</span>
+      <div class="rgtnav"></div>
+      <span>Investor Relations</span>
+   <div class="rgtnav"></div>
+<div class="icon-box menu-box">
+ <div class="menu-btn">
+    <i class="fa-regular fa-user"></i>
+    <span><img src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png"></span>
+<span> <font size="2px">Profile</font></span>
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="profile-dropdown">
+<div class="user-section">
+     <div class="user-info">
+
+        <h2>Hello User</h2>
+        <p><font size="2px">To access your Meesho account</font></p>
+	<button class="signup"><a href="file:///C:/Users/DSTA/Desktop/Leena%20project/signupform.html">Sign Up</button></a>
+      </div>
+    </div>
+
+    <div class="drop-item">
+  
+    <span><img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" width="24">&nbsp&nbsp&nbsp&nbspMy Orders</span>
+    </div>
+
+    <div class="drop-item">
+      <span style="margin-left:42px;">Delete Account</span>
+    </div>
+  </div>
+</div>
+
+      <div class="icon-box">
+        <img src="https://cdn-icons-png.flaticon.com/128/263/263142.png">
+        <span>Cart</span>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ===== 2ND NAVBAR (FIXED) ===== -->
+<nav class="second-nav">
+  <div class="second-container">
+    <ul class="menu">
+<li class="nav-item">
+  Popular</li>
+<li>Kurti, Saree & Lehenga</li>
+<li>Women Western</li>
+<li>Western</li>
+      <li>Lingerie</li>
+      <li>Men</li>
+      <li>Kids & Toys</li>
+      <li>Home & Kitchen</li>
+      <li>Beauty & Health</li>
+      <li>Jewellery & Accessories</li>
+      <li>Bags & Footwear</li>
+    </ul>
+  </div>
+</nav>
+
+<div class="box">
+  <img src="https://images.meesho.com/images/marketing/1777273335220.webp" width="100%"/>
+  <div class="img-text">Smart Shopping
+		Trusted by Millions
+	<br><br><span style="background:white;font-size:30px; color: #541362; padding:10px; margin:10px; border-radius:12px;font-weight:400;"> Shop Now</span>
+</div>
+</div>
+</div>
+
+<div class="pinkbox"> 
+<div class="whitebox">
+<span><img src="https://www.meesho.com/assets/Icons/returns.svg" width="40px"/>7 Days Easy Return</span>
+ <span><img src="https://www.meesho.com/assets/Icons/cod.svg" width="40px"/>&nbsp&nbspCash on Delivery</span>
+<span><img src="https://www.meesho.com/assets/Icons/lowest-price.svg" width="40px"/>&nbsp&nbspLowest Prices</span>
+</div>
+</div>
+</div>
+<br><br>
+
+<div class="photos">
+
+<span class="p"><img src="https://images.meesho.com/images/marketing/1744634654837.webp" width="110"></span>
+<span class="p"><img src="https://images.meesho.com/images/marketing/1744634725496.webp" width="110"> </span>
+<span class="p"> <img src="https://images.meesho.com/images/marketing/1744634780426.webp" width="110"></span>
+ <span class="p"><img src="https://images.meesho.com/images/marketing/1744634814643.webp" width="130"></span>
+ <span class="p"> <img src="https://images.meesho.com/images/marketing/1744634835018.webp" width="110"></span>
+ <span class="p"><img src="https://images.meesho.com/images/marketing/1744634871107.webp" width="110"></span>
+ <span class="p"> <img src="https://images.meesho.com/images/marketing/1744634909968.webp" width="110"></span>
+<span class="p">  <img src="https://images.meesho.com/images/marketing/1744634937295.webp" width="110"></span>
+
+</div>
+<div class="box2">
+  <img src="https://images.meesho.com/images/marketing/1744698265981.webp" class="main-img">
+
+ <img src="https://images.meesho.com/images/marketing/1744722796811.webp" class="overlay-img">
+  <img src="https://images.meesho.com/images/marketing/1744635113661.webp" class="overlay2-img">
+ <img src="https://images.meesho.com/images/marketing/1744635139351.webp" class="overlay3-img">
+  <img src="https://images.meesho.com/images/marketing/1744635189897.webp" class="overlay4-img">
+<span class="overlay5-img"> <a href="https://www.meesho.com/gold/clp/2R2G">Shop Now </a></span>
+</div>
+<div><br><br></div>
+
+<div class="wrapper">
+
+  <button class="btn left" onclick="slide(-1)">&#10094;</button>
+
+  <div class="viewport">
+    <div class="track" id="track">
+
+      <img src="https://images.meesho.com/images/marketing/1744635542873.webp">
+      <img src="https://images.meesho.com/images/marketing/1744635521751.webp">
+      <img src="https://images.meesho.com/images/marketing/1744635497001.webp">
+      <img src="https://images.meesho.com/images/marketing/1744635464683.webp">
+      <img src="https://images.meesho.com/images/marketing/1744635402151.webp">
+      <img src="https://images.meesho.com/images/marketing/1744635614888.webp">
+      <img src="https://images.meesho.com/images/marketing/1744635646070.webp">
+
+    </div>
+  </div>
+
+  <button class="btn right" onclick="slide(1)">&#10095;</button>
+
+</div>
+<div><br><br></div>
+<div class="logos">
+  <div class="logos-slide">
+    <img  class="logo-card" src="https://images.meesho.com/images/marketing/1743159393231.webp"/>
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159377598.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159415385.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1744636599446.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159363205.webp" />
+   <img class="logo-card"src="https://images.meesho.com/images/marketing/1744636558884.webp" />
+
+
+</div>
+
+  <div class="logos-slide">
+      <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159393231.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159377598.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159415385.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1744636599446.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1743159363205.webp" />
+    <img class="logo-card"src="https://images.meesho.com/images/marketing/1744636558884.webp" />
+
+  </div>
+</div>
+</div>
+
+
+
+<div class="box3">
+  <img src="https://images.meesho.com/images/marketing/1762433553672.webp" class="main2-img">
+
+ <img src="https://images.meesho.com/images/marketing/1762433786046.webp" class="overlay01-img">
+  <img src="https://images.meesho.com/images/marketing/1762433761056.webp" class="overlay02-img">
+ <img src="https://images.meesho.com/images/marketing/1762433804035.webp" class="overlay03-img">
+  <img src="https://images.meesho.com/images/marketing/1762433722680.webp" class="overlay04-img">
+
+
+
+
+<Span class="open-popup overlay05-img">Download Now</span>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+  
+<span class="close-btn" onclick="closePopup()">×</span>
+    <h4 style="border-bottom:1px solid gray; color:purple;">Shop Now on App to get Upto 35% off on 1st Order</h4>
+<table>
+    <th><img src="https://images.meesho.com/images/marketing/1775810591405.webp"width="450px" height="200px"></th>
+ <th><img src="https://images.meesho.com/images/marketing/1758178080936.png" width="220px" height="200px"></th></table>
+     
+  
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+
+<!-- Navbar -->
+<div class="products">
+  <h2>Products For You</h2>
+</div>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- Sidebar -->
+  <div class="Sidebar">
+<h3 class="filterbox2">Sort by: Relevance </h3>
+
+    <!-- Dropdown -->
+    <div class="filter">
+  <h3 class="filterbox"><b><font size="4px">FILTERS</font></b><br>
+		<font size="2px">1000+ Products </font></h3>
+
+
+      <div class="filter-title" onclick="toggle(this)">
+      Category &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+        <p><input type="text"search-box"></p>
+        <p><input type="checkbox">&nbspWomen T-shirts</p>
+ <p><input type="checkbox">&nbsp Women T-shirts</p>
+ <p><input type="checkbox">&nbsp Women Tops & Tunics</p>
+ <p><input type="checkbox">&nbsp Analog Watches</p>
+ <p><input type="checkbox">&nbsp Anklets & Toe Rings</p>
+ <p><input type="checkbox">&nbsp Appliance Covers</p>
+ <p><input type="checkbox">&nbsp Bangles & Bracelets</p>
+ <p><input type="checkbox">&nbsp Bathroom Accessories</p>
+ <p><input type="checkbox">&nbsp Bedding & Bedsheets</p>
+ <p><input type="checkbox">&nbsp Bike Covers</p>
+ <p><input type="checkbox">&nbsp Blouses</p>
+       
+       
+      </div>
+    </div>
+
+
+
+
+
+    <div class="filter">
+      <div class="filter-title" onclick="toggle(this)">
+        Gender &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p class="genderopt">Boys</p>
+        <p class="genderopt">Girls</p>
+        <p class="genderopt">Men</p>
+        <p class="genderopt">Women</p>
+      </div>
+    </div>
+
+
+    <div class="filter">
+      <div class="filter-title" onclick="toggle(this)">
+        Color &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⌵
+      </div>
+
+<div class="filter-content">
+       <table> <tr><td><p class="genderopt">Pink</p></td>
+
+        <td><p class="genderopt">Blue</p></td></tr>
+
+        <tr><td><p class="genderopt">multicolor</p></td>
+
+        <td><p class="genderopt">yellow</p></td></tr>
+
+ <tr><td><p class="genderopt">Golden</p></td>
+
+        <td><p class="genderopt">Brown</p></td></tr>
+
+        <tr><td><p class="genderopt">Nude</p></td>
+
+        <td><p class="genderopt">Purple</p></td></tr>
+
+ <tr><td><p class="genderopt">Red</p></td>
+
+        <td><p class="genderopt">Black</p></td></tr>
+
+        <tr><td><p class="genderopt">Maroon</p></td>
+
+        <td><p class="genderopt">Gray</p></td></tr></table>
+      </div>
+    </div>
+
+  <div class="filter">
+      <div class="filter-title" onclick="toggle(this)">
+       Fabric &nbsp &nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp  &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⌵
+      </div>
+<div class="filter-content">
+       <p><input type="checkbox">&nbsp Cotton</p>
+ 	<p><input type="checkbox">&nbsp Cotton Blend</p>
+      </div>
+    </div>
+
+  <div class="filter">
+      <div class="filter-title" onclick="toggle(this)">
+        Size &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp⌵
+      </div>
+<div class="filter-content">
+          <p><input type="checkbox">&nbsp L</p>
+ 	<p><input type="checkbox">&nbsp M</p>
+  <p><input type="checkbox">&nbsp S</p>
+ 	<p><input type="checkbox">&nbsp XL</p>
+  <p><input type="checkbox">&nbsp Xxl</p>
+
+      </div>
+    </div>
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+        Price &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p class="genderopt">Under 249</p><br>
+        <p class="genderopt">Under 299</p><br>
+        <p class="genderopt">Under 349</p><br>
+        <p class="genderopt">Under 399</p><br>
+	 <p class="genderopt">Under 449</p><br>
+        <p class="genderopt">Under 499</p><br>
+      </div>
+</div>
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+        Rating &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p> <input type="checkbox">&nbsp 2.0 and above</p><br>
+        <p> <input type="checkbox">&nbsp3.0 and above</p><br>
+        <p> <input type="checkbox">&nbsp3.5 and above</p><br>
+        <p> <input type="checkbox">&nbsp4.0 and above</p><br>
+	
+      </div>
+</div>
+
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+        Combo &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p> <input type="checkbox">&nbsp Pack of 1</p><br>
+        <p> <input type="checkbox">&nbsp single</p><br>
+ 
+      </div>
+</div>   
+
+ <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+        Occasion &nbsp &nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p class="genderopt">Daily Wear</p><br>
+      </div>
+</div>
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+        Pattern &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p> <input type="checkbox">&nbsp Printed</p><br>
+        <p> <input type="checkbox">&nbsp Solid</p><br>
+ 
+      </div>
+</div>  
+
+ <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+       Sleeve &nbsp &nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p class="genderopt">Long Sleeves</p><br>
+	<p class="genderopt">Regular Sleeves</p><br>
+      </div>
+</div>
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+       Fit &nbsp &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p> <input type="checkbox">&nbsp Straight Top</p><br>
+ 
+      </div>
+</div>  
+
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+      Top Length &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p> <input type="checkbox">&nbsp Regular Length</p><br>
+ 
+      </div>
+</div>  
+
+
+  <div class="filter">
+<div class="filter-title" onclick="toggle(this)">
+      Neck &nbsp &nbsp&nbsp  &nbsp  &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp&nbsp&nbsp⌵
+      </div>
+      <div class="filter-content">
+	<p> <input type="checkbox">&nbsp Round Neck</p><br>
+ 
+      </div>
+</div>  
+
+</div>
+<div>
+  <!-- Products -->
+  <div class="products">
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/296680241/khhdq_512.avif?width=360">
+      <p>Analog Watch</p>
+      <h4>₹174</h4>
+      <span class="rating">3.9</span><span><font size="1px">1221 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/455662991/kssha_512.avif?width=360">
+      <p>vinita Collection</p>
+      <h4>₹93</h4>
+      <span class="rating">3.9</span><span><font size="1px">125121 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/536760921/9ad7e_512.avif?width=360">
+      <p>ASuperior Unique Lipstics</p>
+      <h4>₹244</h4>
+      <span class="rating">3.9</span><span><font size="1px">124221 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/583478743/fqy2l_512.avif?width=360">
+      <p>Mobile Cases</p>
+      <h4>₹110</h4>
+      <span class="rating">3.9</span><span><font size="1px">122145 Reviews</font></span>
+</div>
+</div>
+
+
+<div class="products">
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/503856578/mhrgz_512.avif?width=360">
+      <p>Bluetooth Headphones</p>
+      <h4>₹366</h4>
+      <span class="rating">4.0</span><span><font size="1px">1221 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/470474652/znvpv_512.avif?width=360">
+      <p>Attractive Shoes</p>
+      <h4>₹279</h4>
+      <span class="rating">3.0</span><span><font size="1px">125121 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/635492599/uqyi0_512.avif?width=360">
+      <p>Graceful bedsheets</p>
+      <h4>₹364</h4>
+      <span class="rating">2.9</span><span><font size="1px">124221 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/913105089/qycr9_512.avif?width=360">
+      <p>Attractive women purse</p>
+      <h4>₹199</h4>
+      <span class="rating">4.9</span><span><font size="1px">122145 Reviews</font></span>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="products">
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/460800167/bop0s_512.avif?width=360">
+      <p>Magic Soap</p>
+      <h4>₹129</h4>
+      <span class="rating">4.0</span><span><font size="1px">1221 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/477207320/3b49q_512.avif?width=360">
+      <p>Kids Bags</p>
+      <h4>₹279</h4>
+      <span class="rating">3.0</span><span><font size="1px">125121 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/461881412/zlelt_512.avif?width=360">
+      <p>Unique slippers for men</p>
+      <h4>₹201</h4>
+      <span class="rating">2.9</span><span><font size="1px">124221 Reviews</font></span>
+</div>
+
+    <div class="card">
+      <img src="https://images.meesho.com/images/products/743506214/fzqmr_512.avif?width=360">
+      <p>Trending women kurti</p>
+      <h4>₹199</h4>
+      <span class="rating">4.9</span><span><font size="1px">122145 Reviews</font></span>
+
+</div></div></div></div>
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer2-section">
+      <h3>Shop Non-Stop on Meesho</h3>
+      <p><font color="#35353B"><font size="4px">Trusted by Crores of Indians</font></font></p>
+	<p><font color="#35353B"><font size="4px">Cash on Delivery</font></font></p>
+<table>
+<th><img src="https://images.meesho.com/images/pow/playstore-icon-big_400.webp"width="210px"></th>
+<th> <img src="https://images.meesho.com/images/pow/appstore-icon-big_400.webp" width="210px"></th>
+</table>
+</div>
+
+    <div class="footer3-section">
+      <h5><font color="#35353B">Careers</font></h5>
+      <ul type="none">
+        <li><font color="#35353B">Become a Supplier</font></li>
+        <li><font color="#35353B">Hall of Fame</font></li>
+<li><font color="#35353B">Sitemap</font></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h5><font color="#35353B">Legal and Policies</font></h5>
+      <ul>
+        <li><font color="#35353B">Meesho Tech Blog</font></li>
+        <li><font color="#35353B">Notices and Returns</font></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h5>Reach out to us</h5>
+<table>
+<th><img src="https://images.meesho.com/images/pow/facebook.webp"></th>
+<th><img src="https://images.meesho.com/images/pow/instagram.webp"></th>
+<th><img src="https://images.meesho.com/images/pow/youtube.webp"></th>
+<th><img src="https://images.meesho.com/images/pow/linkedin.webp"></th>
+<th><img src="https://images.meesho.com/images/pow/twitter.webp"></th>
+</table>
+    </div>
+
+    <div class="footer4-section">
+      <h5>Contact Us</h5>
+      <p>
+Contact Us
+Meesho Technologies Private Limited
+CIN: U62099KA2024PTC186568
+3rd Floor, Wing-E, Helios Business Park,Kadubeesanahalli Village, Varthur Hobli, Outer Ring Road Bellandur, Bangalore, Bangalore South, Karnataka, India, 560103
+E-mail address: query@meesho.com
+© 2015-2026 Meesho.com</p>
+    </div>
+
+
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let index = 0;
+const itemWidth = 160;
+const totalItems = 7;
+const visibleItems = 3; 
+function slide(dir) {
+  const track = document.getElementById("track");
+
+  index += dir;
+
+  // ❗ IMPORTANT FIX: proper boundary
+  const maxIndex = totalItems - visibleItems;
+
+  if (index < 0) index = 0;
+  if (index > maxIndex) index = maxIndex;
+
+  track.style.transform = `translateX(${-index * itemWidth}px)`;
+}
+
+function toggle(el) {
+  let content = el.nextElementSibling;
+
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
+
+
+let popup = document.getElementById("popup");
+
+document.querySelector(".open-popup").onclick = function() {
+  popup.style.display = "flex";
+}
+
+function closePopup() {
+  popup.style.display = "none";
+}
+</script>
+
+ 
+
+</body>
+</html>
